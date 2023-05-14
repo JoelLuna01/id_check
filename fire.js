@@ -4,7 +4,7 @@ var config = {
 
     apiKey: "AIzaSyBmWIP0VDG45KEZFBabrFjlKzI8sXyyvvQ",
     authDomain: "idcheck-a9646.firebaseapp.com",
-    databaseURL: "https://idcheck-a9646-default-rtdb.firebaseio.com",
+    databaseURL: "https://idcheck-a9646-default-rtdb.firebaseio.com/",
     projectId: "idcheck-a9646",
     storageBucket: "idcheck-a9646.appspot.com",
     messagingSenderId: "560271868131",

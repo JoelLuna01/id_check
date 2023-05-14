@@ -113,50 +113,50 @@ app.get('/grafica', (req, res) => {
 app.post('/insertar', (req, res) => {
     const db = fire.firestore();
 
-
     db.collection('valores').add({
-
         id: req.body.id,
         nom: req.body.nom,
         car: req.body.car,
-
     });
     res.send({
         id: req.body.id,
         nom: req.body.nom,
         car: req.body.car,
-
         status: 'Valores insertados!'
     })
 })
 
 app.post('/encender', (req, res) => {
     const db = fire.firestore();
-
+    db.settings({
+        timestampsInSnapshots: true
+    });
     db.collection('Rele').add({
         r1: true,
         nombre: req.body.nombre,
-
+        fecha: new Date()
     });
     res.send({
         r1: true,
         nombre: req.body.nombre,
-
+        fecha: new Date(),
         status: 'Rele encendido'
     })
 })
 app.post('/apagar', (req, res) => {
     const db = fire.firestore();
-
+    db.settings({
+        timestampsInSnapshots: true
+    });
     db.collection('Rele').add({
         r1: false,
         nombre: req.body.nombre,
-
+        fecha: new Date()
     });
     res.send({
         r1: false,
         nombre: req.body.nombre,
-
+        fecha: new Date(),
         status: 'Rele apagado'
     })
 })

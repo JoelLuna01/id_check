@@ -118,15 +118,15 @@ app.post('/insertar', (req, res) => {
 
     db.collection('/valores').add({
 
-        ID: req.body.ID,
-        Nombre: req.body.Nombre,
-        Carrera: req.body.Carrera
+        id: req.body.id,
+        nom: req.body.nom,
+        car: req.body.car
         
     });
     res.send({
-        ID: req.body.ID,
-        Nombre: req.body.Nombre,
-        Carrera: req.body.Carrera,
+        id: req.body.id,
+        nom: req.body.nom,
+        car: req.body.car,
         fecha: new Date(),
         status: 'Valores insertados!'
     })

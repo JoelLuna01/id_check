@@ -116,7 +116,7 @@ app.post('/insertar', (req, res) => {
         timestampsInSnapshots: true
     });
 
-    db.collection('valores').add({
+    db.collection('/valores').add({
 
         ID: req.body.id,
         Nombre: req.body.nom,

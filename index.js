@@ -11,7 +11,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
     res.send(
-        '<h1>API Express & Firebase IDCheck</h1><ul><li><p><b>GET /ver</b></p></li><li><p><b>GET /valor</b></p></li><li><p><b>GET /estado</b></p></li><li><p><b>POST /insertar</b>  => {id, nombre, carrera}</p></li><li><p><b>POST /encender</b></p></li><li><p><b>POST /apagar</b></p></li><li><p>/encender</p></li><li><p>/apagar</p></li><li><p>/estado</p></li></ul>')
+        '<h1>API Express & Firebase IDCheck</h1><ul><li><p><b>GET /ver</b></p></li><li><p><b>GET /valor</b></p></li><li><p><b>GET /estado</b></p></li><li><p><b>POST /insertar</b>  => {id, nombre, carrera, fecha}</p></li><li><p><b>POST /encender</b></p></li><li><p><b>POST /apagar</b></p></li><li><p>/encender</p></li><li><p>/apagar</p></li><li><p>/estado</p></li></ul>')
 })
 
 app.get('/ver', (req, res) => {
@@ -112,16 +112,22 @@ app.get('/grafica', (req, res) => {
 
 app.post('/insertar', (req, res) => {
     const db = fire.firestore();
+    db.settings({
+        timestampsInSnapshots: true
+    });
 
     db.collection('valores').add({
+
         id: req.body.id,
         nom: req.body.nom,
         car: req.body.car,
+        fecha: new Date().toJSON()
     });
     res.send({
         id: req.body.id,
         nom: req.body.nom,
         car: req.body.car,
+        fecha: new Date(),
         status: 'Valores insertados!'
     })
 })

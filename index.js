@@ -58,7 +58,7 @@ app.get('/estado', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('Rele').limit(1).orderBy('fecha', 'desc').get()
+    db.collection('Rele').limit(1).orderBy('id', 'desc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 

@@ -20,7 +20,7 @@ app.get('/ver', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('valores').orderBy('fecha', 'asc').get()
+    db.collection('valores').orderBy('id', 'asc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 

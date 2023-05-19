@@ -20,7 +20,7 @@ app.get('/ver', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('valores').orderBy('id', 'asc').get()
+    db.collection('valores').orderBy('fecha', 'asc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 
@@ -58,7 +58,7 @@ app.get('/estado', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('Rele').limit(1).orderBy('id', 'desc').get()
+    db.collection('Rele').limit(1).orderBy('fecha', 'desc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 
@@ -77,7 +77,7 @@ app.get('/valor', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('valores').limit(1).orderBy('fecha', 'desc').get()
+    db.collection('valores').limit(1).orderBy('id', 'desc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 
@@ -96,7 +96,7 @@ app.get('/grafica', (req, res) => {
         timestampsInSnapshots: true
     });
     var wholeData = []
-    db.collection('valores').limit(10).orderBy('fecha', 'desc').get()
+    db.collection('valores').limit(10).orderBy('id', 'desc').get()
         .then(snapshot => {
             snapshot.forEach(doc => {
 

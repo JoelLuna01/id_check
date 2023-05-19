@@ -120,7 +120,7 @@ app.post('/insertar', (req, res) => {
 
         id: req.body.id,
         nom: req.body.nom,
-        car: req.body.car
+        car: req.body.car,
         fecha: new Date().toJSON()
         
     });

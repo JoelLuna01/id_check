@@ -115,7 +115,10 @@ app.post('/insertar', (req, res) => {
     db.settings({
         timestampsInSnapshots: true
     });
-
+    db.collection('/personas').add({
+        conteo: req.body.conteo,
+        fecha: new Date().toJSON()
+    });
     db.collection('/valores').add({
 
         id: req.body.id,
@@ -128,6 +131,7 @@ app.post('/insertar', (req, res) => {
         id: req.body.id,
         nom: req.body.nom,
         car: req.body.car,
+        conteo: req.body.conteo,
         fecha: new Date(),
         status: 'Valores insertados!'
     })
